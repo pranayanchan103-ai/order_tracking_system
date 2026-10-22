@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracker</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>Order Tracker</h1>
+        <p>Enter your order ID to see where your order is right now.</p>
+    </header>
+
+    <main class="container">
+
+        <form id="track-form" class="track-form" autocomplete="off">
+            <label for="order-id" class="sr-only">Order ID</label>
+            <input type="text" id="order-id" placeholder="Enter order ID, e.g. ORD-1001" maxlength="20">
+            <button type="submit" id="track-btn">Track Order</button>
+        </form>
+
+        <div class="samples">
+            <span>Try a sample:</span>
+            <button type="button" class="sample-btn" data-id="ORD-1001">ORD-1001</button>
+            <button type="button" class="sample-btn" data-id="ORD-1002">ORD-1002</button>
+            <button type="button" class="sample-btn" data-id="ORD-1003">ORD-1003</button>
+            <button type="button" class="sample-btn" data-id="ORD-1004">ORD-1004</button>
+            <button type="button" class="sample-btn" data-id="ORD-1005">ORD-1005</button>
+            <button type="button" class="sample-btn" data-id="ORD-9999">ORD-9999 (does not exist)</button>
+        </div>
+
+        <div id="message" class="message hidden" role="alert"></div>
+
+        <section id="result" class="hidden">
+
+            <div class="card">
+                <div class="summary-top">
+                    <div>
+                        <h2 id="res-order-id"></h2>
+                        <p id="res-product" class="muted"></p>
+                    </div>
+                    <span id="res-badge" class="badge"></span>
+                </div>
+
+                <p id="res-description" class="description"></p>
+
+                <div id="progress" class="progress"></div>
+
+                <dl class="details">
+                    <div>
+                        <dt>Customer</dt>
+                        <dd id="res-customer"></dd>
+                    </div>
+                    <div>
+                        <dt>Order placed</dt>
+                        <dd id="res-placed"></dd>
+                    </div>
+                    <div>
+                        <dt>Last update</dt>
+                        <dd id="res-updated"></dd>
+                    </div>
+                </dl>
+            </div>
+
+            <div class="card">
+                <h3>Tracking history</h3>
+                <ol id="timeline" class="timeline"></ol>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        Demo project. Timestamps and locations are illustrative, not live delivery data.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
